@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noza Asla Ananda | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Major+Mono+Display&family=Poppins:wght@400;700&family=Sacramento&family=Fredoka:wght@500&family=Comfortaa:wght@500&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <style>
+    :root {
+      --primary-light: #fdf1f8;
+      --secondary-light: #f8d9ef;
+      --accent-light: #f4aeea;
+      --text-light: #6e3774;
+      --card-light: #ffe9fc;--primary-dark: #070013;
+  --secondary-dark: #120626;
+  --accent-dark: #a066ff;
+  --text-dark: #f5d3ff;
+  --card-dark: #1d1234;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: var(--primary-light);
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+body.dark {
+  font-family: 'Orbitron', sans-serif;
+  background-color: var(--primary-dark);
+  color: var(--text-dark);
+}
+
+body.dark::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://cdn.pixabay.com/animation/2023/01/16/20/01/20-01-24-449_512.gif') repeat center center;
+  background-size: cover;
+  z-index: -1;
+  opacity: 0.2;
+  animation: starsMove 300s linear infinite;
+}
+
+@keyframes starsMove {
+  from { background-position: 0 0; }
+  to { background-position: 1000px 1000px; }
+}
+
+header {
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(to right, var(--accent-light), var(--secondary-light));
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+body.dark header {
+  background: linear-gradient(to right, var(--accent-dark), var(--secondary-dark));
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  background: var(--secondary-light);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+body.dark nav {
+  background: var(--secondary-dark);
+}
+nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: inherit;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  gap: 2rem;
+}
+.hero-img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 6px solid var(--accent-light);
+  box-shadow: 0 0 40px var(--accent-light);
+  background-image: url('foto-noza.jpeg');
+  background-size: cover;
+  background-position: center;
+  animation: float 4s ease-in-out infinite, spin 20s linear infinite;
+}
+body.dark .hero-img {
+  border-color: var(--accent-dark);
+  box-shadow: 0 0 40px var(--accent-dark);
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.hero-text {
+  max-width: 600px;
+  text-align: center;
+}
+.hero-text h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+.hero-text span {
+  color: var(--accent-light);
+}
+body.dark .hero-text span {
+  color: var(--accent-dark);
+}
+.typed-text {
+  white-space: pre-wrap;
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.services, .skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.card {
+  padding: 1.8rem;
+  border-radius: 20px;
+  background: var(--card-light);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.card:hover {
+  transform: scale(1.05);
+}
+body.dark .card {
+  background: var(--card-dark);
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(160, 80, 255, 0.4);
+}
+.card h3 {
+  margin-bottom: 0.5rem;
+  color: var(--accent-light);
+}
+body.dark .card h3 {
+  color: var(--accent-dark);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--secondary-light);
+}
+body.dark footer {
+  background: var(--secondary-dark);
+}
+
+.toggle-mode {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--accent-light);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  font-family: 'Comfortaa', cursive;
+}
+body.dark .toggle-mode {
+  background: var(--accent-dark);
+  font-family: 'Orbitron', sans-serif;
+}
+
+.contact-info a {
+  display: block;
+  margin: 0.6rem auto;
+  font-size: 1.15rem;
+  color: inherit;
+  text-decoration: none;
+}
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+  <button class="toggle-mode" onclick="document.body.classList.toggle('dark')">Toggle Mode</button>
+  <header>
+    <h1>Noza Asla Ananda</h1>
+    <p>Creative Storyteller | Web Designer | Food Lover</p>
+  </header>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <section class="hero" id="home">
+    <div class="hero-img"></div>
+    <div class="hero-text">
+      <h1>Hi! I'm <span>Noza Asla Ananda</span></h1>
+      <p class="typed-text"></p>
+    </div>
+  </section>
+  <section class="section" id="services">
+    <h2>My Services</h2>
+    <div class="services">
+      <div class="card">
+        <h3><i class="fas fa-paint-brush"></i> UI/UX Design</h3>
+        <p>Desain interface estetik, fungsional, dan tentunya berjiwa pastel!</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-code"></i> Web Development</h3>
+        <p>Frontend dev dengan HTML, CSS, JS, dan framework modern.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-mobile-alt"></i> Responsive Layout</h3>
+        <p>Website cantik dan tetap kece di semua ukuran layar.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="skills">
+    <h2>My Skills</h2>
+    <div class="skills">
+      <div class="card">HTML & CSS</div>
+      <div class="card">JavaScript</div>
+      <div class="card">Figma</div>
+      <div class="card">React (Basic)</div>
+      <div class="card">Creative Writing</div>
+      <div class="card">Web Illustration</div>
+    </div>
+  </section>
+  <section class="section" id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-info">
+      <p><strong>Number:</strong> +62-444-3333-333</p>
+      <a href="mailto:nozaasla08@gmail.com?subject=Hello%20Noza&body=Hai%20Noza%2C%20saya%20tertarik%20dengan%20jasa%20kamu!"><i class="fas fa-envelope"></i> nozaasla08@gmail.com</a>
+      <a href="https://instagram.com/nozaasla_" target="_blank"><i class="fab fa-instagram"></i> @nozaasla_</a>
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 2025 Noza Asla Ananda. Designed with 💜 and ☕</p>
+  </footer>
+  <script>
+    const text = `Seorang penulis penuh passion dengan cinta pada cerita yang emosional dan dalam. Aku aktif menulis dan membaca di Wattpad, merangkai kisah yang penuh konflik dan perasaan.\n\nSelain menulis, aku juga suka mendesain web. Setiap pixel adalah bagian dari cerita visual yang aku buat. Dari UI manis bernuansa pastel hingga responsive layout yang elegan.\n\nDi luar layar? Aku jago masak! Dunia kuliner adalah tempatku berekspresi lewat rasa. Pokoknya, semua tentang kreativitas adalah duniamu dan duniaku.`;
+    const el = document.querySelector(".typed-text");
+    let i = 0;
+    function typeWriter() {
+      if (i < text.length) {
+        el.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+      }
+    }
+    window.onload = typeWriter;
+  </script>
+</body>
+</html>
