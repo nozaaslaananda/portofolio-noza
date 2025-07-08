@@ -1,22 +1,74 @@
-﻿<!DOCTYPE html><html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Noza Asla Ananda | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Major+Mono+Display&family=Poppins:wght@400;700&family=Sacramento&family=Fredoka:wght@500&family=Comfortaa:wght@500&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Major+Mono+Display&family=Poppins:wght@400;700&family=Sacramento&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <style>
+.contact-slide {
+  background: var(--card-light);
+  margin-top: -2rem;
+  padding: 4rem 2rem;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+body.dark .contact-slide {
+  background: var(--card-dark);
+}
+.chat-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+.chat-form input,
+.chat-form textarea {
+  width: 90%;
+  max-width: 500px;
+  padding: 1rem;
+  border: 2px solid var(--accent-light);
+  border-radius: 15px;
+  font-size: 1rem;
+  background-color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+body.dark .chat-form input,
+body.dark .chat-form textarea {
+  background-color: #1d1235;
+  color: white;
+  border-color: var(--accent-dark);
+}
+.chat-form button {
+  padding: 0.8rem 2rem;
+  border: none;
+  background: var(--accent-light);
+  color: white;
+  font-size: 1rem;
+  font-family: 'Sacramento', cursive;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+body.dark .chat-form button {
+  background: var(--accent-dark);
+}
+.chat-form button:hover {
+  transform: scale(1.05);
+  background: #b373ff;
+}
     :root {
-      --primary-light: #fdf1f8;
-      --secondary-light: #f8d9ef;
-      --accent-light: #f4aeea;
-      --text-light: #6e3774;
-      --card-light: #ffe9fc;--primary-dark: #070013;
-  --secondary-dark: #120626;
-  --accent-dark: #a066ff;
-  --text-dark: #f5d3ff;
-  --card-dark: #1d1234;
+      --primary-light: #fbe4f0;
+      --secondary-light: #f2d3f7;
+      --accent-light: #dfb1ff;
+      --text-light: #5a357e;
+      --card-light: #ffe9fc;--primary-dark: #0a001f;
+  --secondary-dark: #1e0f3a;
+  --accent-dark: #9f61ff;
+  --text-dark: #e0d4ff;
+  --card-dark: #2e2057;
 }
 
 * {
@@ -25,38 +77,16 @@
   box-sizing: border-box;
   transition: all 0.3s ease;
 }
-
 body {
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: var(--primary-light);
   color: var(--text-light);
-  overflow-x: hidden;
 }
 body.dark {
   font-family: 'Orbitron', sans-serif;
   background-color: var(--primary-dark);
   color: var(--text-dark);
 }
-
-body.dark::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://cdn.pixabay.com/animation/2023/01/16/20/01/20-01-24-449_512.gif') repeat center center;
-  background-size: cover;
-  z-index: -1;
-  opacity: 0.2;
-  animation: starsMove 300s linear infinite;
-}
-
-@keyframes starsMove {
-  from { background-position: 0 0; }
-  to { background-position: 1000px 1000px; }
-}
-
 header {
   padding: 2rem;
   text-align: center;
@@ -67,7 +97,6 @@ body.dark header {
   background: linear-gradient(to right, var(--accent-dark), var(--secondary-dark));
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
-
 nav {
   display: flex;
   justify-content: center;
@@ -87,7 +116,6 @@ nav a {
   font-weight: 600;
   color: inherit;
 }
-
 .hero {
   display: flex;
   flex-wrap: wrap;
@@ -105,7 +133,7 @@ nav a {
   background-image: url('foto-noza.jpeg');
   background-size: cover;
   background-position: center;
-  animation: float 4s ease-in-out infinite, spin 20s linear infinite;
+  animation: float 4s ease-in-out infinite;
 }
 body.dark .hero-img {
   border-color: var(--accent-dark);
@@ -115,11 +143,6 @@ body.dark .hero-img {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 .hero-text {
   max-width: 600px;
   text-align: center;
@@ -137,9 +160,8 @@ body.dark .hero-text span {
 .typed-text {
   white-space: pre-wrap;
   margin-top: 1.5rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
-
 .section {
   padding: 4rem 2rem;
   text-align: center;
@@ -161,17 +183,18 @@ body.dark .hero-text span {
 }
 body.dark .card {
   background: var(--card-dark);
-  border-radius: 12px;
-  box-shadow: 0 0 25px rgba(160, 80, 255, 0.4);
+  border-radius: 0;
+  box-shadow: 0 0 20px rgba(160, 80, 255, 0.3);
 }
 .card h3 {
   margin-bottom: 0.5rem;
   color: var(--accent-light);
+  font-family: 'Poppins', sans-serif;
 }
 body.dark .card h3 {
   color: var(--accent-dark);
+  font-family: 'Major Mono Display', monospace;
 }
-
 footer {
   text-align: center;
   padding: 2rem;
@@ -180,7 +203,6 @@ footer {
 body.dark footer {
   background: var(--secondary-dark);
 }
-
 .toggle-mode {
   position: fixed;
   top: 1rem;
@@ -192,22 +214,11 @@ body.dark footer {
   padding: 0.6rem 1.2rem;
   cursor: pointer;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Sacramento', cursive;
 }
 body.dark .toggle-mode {
   background: var(--accent-dark);
   font-family: 'Orbitron', sans-serif;
-}
-
-.contact-info a {
-  display: block;
-  margin: 0.6rem auto;
-  font-size: 1.15rem;
-  color: inherit;
-  text-decoration: none;
-}
-.contact-info a:hover {
-  text-decoration: underline;
 }
 
   </style>
@@ -240,7 +251,7 @@ body.dark .toggle-mode {
       </div>
       <div class="card">
         <h3><i class="fas fa-code"></i> Web Development</h3>
-        <p>Frontend dev dengan HTML, CSS, JS, dan framework modern.</p>
+        <p>Frontend dev dengan HTML, CSS, JS.</p>
       </div>
       <div class="card">
         <h3><i class="fas fa-mobile-alt"></i> Responsive Layout</h3>
@@ -254,17 +265,9 @@ body.dark .toggle-mode {
       <div class="card">HTML & CSS</div>
       <div class="card">JavaScript</div>
       <div class="card">Figma</div>
-      <div class="card">React (Basic)</div>
+      <div class="card">JS</div>
       <div class="card">Creative Writing</div>
       <div class="card">Web Illustration</div>
-    </div>
-  </section>
-  <section class="section" id="contact">
-    <h2>Contact Me</h2>
-    <div class="contact-info">
-      <p><strong>Number:</strong> +62-444-3333-333</p>
-      <a href="mailto:nozaasla08@gmail.com?subject=Hello%20Noza&body=Hai%20Noza%2C%20saya%20tertarik%20dengan%20jasa%20kamu!"><i class="fas fa-envelope"></i> nozaasla08@gmail.com</a>
-      <a href="https://instagram.com/nozaasla_" target="_blank"><i class="fab fa-instagram"></i> @nozaasla_</a>
     </div>
   </section>
   <footer>
@@ -282,6 +285,29 @@ body.dark .toggle-mode {
       }
     }
     window.onload = typeWriter;
+function sendMessage(event) {
+  event.preventDefault();
+  const nama = document.getElementById("namaInput").value;
+  const ig = document.getElementById("igInput").value;
+  const email = document.getElementById("emailInput").value;
+  const pesan = document.getElementById("pesanInput").value;
+
+  const emailTujuan = "nozaasla@gmail.com"; // Ganti ini dengan email kamu
+  const subject = encodeURIComponent(`Pesan Portofolio dari ${nama}`);
+  const body = encodeURIComponent(`Nama: ${nama}\nInstagram: ${ig}\nEmail: ${email}\n\nPesan:\n${pesan}`);
+
+  window.open(`mailto:${emailTujuan}?subject=${subject}&body=${body}`);
+  return false;
+}
   </script>
-</body>
-</html>
+<section class="section contact-slide" id="contact">
+  <h2>Chat Me!</h2>
+  <p>Kamu bisa hubungi aku langsung via Gmail dengan mengisi form ini 💌</p>
+  <form class="chat-form" onsubmit="return sendMessage(event)">
+    <input type="text" id="namaInput" placeholder="Nama kamu" required />
+    <input type="text" id="igInput" placeholder="@instagramkamu" required />
+    <input type="email" id="emailInput" placeholder="Email kamu" required />
+    <textarea id="pesanInput" rows="5" placeholder="Tulis pesan kamu di sini..." required></textarea>
+    <button type="submit">Kirim ke Gmail</button>
+  </form>
+</section>
